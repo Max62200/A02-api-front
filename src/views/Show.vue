@@ -1,13 +1,14 @@
 <template>
   <div id="show">
-   
+    <p>{{ usersList }}</p>
+       
     <h1>TITLE</h1> 
     <img class="img-show img-fluid" src="../assets/loupe.png" alt="">
     <h2>AUTHOR</h2>
     <h5>DATE & GENRE</h5>
     <h4>RESUM</h4><br><p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem repellat soluta officiis facere ea iste? Deleniti voluptatum hic explicabo quisquam. Soluta debitis quae vel, ex esse tempora eligendi nihil consectetur.</p>
     
-       
+   
         
    
 <!-- Button trigger modal -->
@@ -82,7 +83,28 @@
  
 </template>
 
+<script>
+import axios from "axios";
 
+export default {
+  data() {
+    return {
+      usersList: []
+    };
+  },
+  mounted() {
+    axios.get("https://www.googleapis.com/books/v1/volumes/RH8JzgEACAAJ")
+      .then(res => {
+        this.usersList = res.data.volumeInfo.title;
+        console.log(this.usersList)
+      })
+      .catch(error => {
+        console.log(error)
+         // Manage errors if found any
+      })
+  }
+};
+</script>
 
 <style scoped>
 @media  screen and (max-width: 675px) {

@@ -46,6 +46,8 @@
   </div>
 </template>
 
+
+
 <style>
 @media  screen and (max-width: 675px) {
   
