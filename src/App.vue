@@ -1,7 +1,7 @@
 <template >
 
   <div id="app">
- 
+    <div class="containe">
     <div id="nav">
       <router-link to="/"><img class="img-logo" alt="Vue logo" src="./assets/loupe.png"></router-link> 
      <h2 class="title-nav">Bibliothéque 2.0</h2>
@@ -42,6 +42,7 @@
 
     </footer>
     <router-view> </router-view>
+    </div>
   </div>
 </template>
 
@@ -52,6 +53,11 @@
 padding:0;
 margin:0;
 box-sizing: border-box;
+}
+
+.containe{
+  width: 100%;
+  height: 60vh;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto');
@@ -210,8 +216,7 @@ text-decoration: none;
   height:100px;
   background-image: url(./assets/biblio.png);
   position: absolute;
-  bottom:-26%;
-
+ bottom:-46vh;
 
 }
 
@@ -219,8 +224,9 @@ text-decoration: none;
   width: 100%;
   height: 75px;
   background-color: black;
-  position: absolute;
-  bottom: -35%;
+ position: absolute;
+ bottom:-55vh;
+
 }
 
 .footer-text{

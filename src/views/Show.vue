@@ -6,7 +6,7 @@
     <h2>AUTHOR</h2>
     <h5>DATE & GENRE</h5>
     <h4>RESUM</h4><br><p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem repellat soluta officiis facere ea iste? Deleniti voluptatum hic explicabo quisquam. Soluta debitis quae vel, ex esse tempora eligendi nihil consectetur.</p>
-    <div class="container">
+    
        
         
    
@@ -79,7 +79,7 @@
               
     </div>
     
-  </div>
+ 
 </template>
 
 
@@ -87,7 +87,6 @@
 <style scoped>
 @media  screen and (max-width: 675px) {
 @import url('https://fonts.googleapis.com/css2?family=Roboto');
-
 
 
 h1{
@@ -150,6 +149,9 @@ p{
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto');
 
+
+
+ 
 h1{
   text-align: center;
   font-size:50px;

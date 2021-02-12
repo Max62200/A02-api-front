@@ -4,6 +4,10 @@ import List from './views/List.vue'
 import router from './router'
 import Show from './views/Show.vue'
 import YaModal from 'vue-ya-semantic-modal'
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+
+Vue.use(VueAxios, axios)
 
 Vue.use(YaModal)
 
