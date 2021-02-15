@@ -1,428 +1,448 @@
 <template >
-
   <div id="app">
-    <div class="containe">
-    <div id="nav">
-      <router-link to="/"><img class="img-logo" alt="Vue logo" src="./assets/loupe.png"></router-link> 
-     <h2 class="title-nav">Bibliothéque 2.0</h2>
-      <ul class="ul-nav"> 
-        <router-link to="/list"><li class="li-nav">
-          <div class="svg"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-list-check svg" viewBox="0 0 16 16">
-          <path fill-rule="evenodd" d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3.854 2.146a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708L2 3.293l1.146-1.147a.5.5 0 0 1 .708 0zm0 4a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708L2 7.293l1.146-1.147a.5.5 0 0 1 .708 0zm0 4a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 0 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0z"/>
-        </svg></div>
-      </li></router-link>
-      </ul>
-      </div>
-      <header class="container-header"> 
-
-          <div class="container-search">
-            <input class="input-header" type="text" placeholder="Search..">
-            <button class="button-search" type="button">OK</button>
-          </div>
-      </header>
-      <div class="section"> 
-      <div class="banniere">
-        <ul class="ul2-section">
-            <router-link to="/"><li class="li-section">Comedie</li></router-link> 
-            <router-link to="/"><li class="li-section">Fiction</li></router-link> 
-            <router-link to="/"><li class="li-section">Drame</li></router-link> 
-        </ul>
-      </div>
-      </div>
-
-       
-      <div class="footer">
-
-
-      </div>   
+    
+       <nav class="nav">
         
-    <footer class="min-footer">
-     
-    <p class="footer-text">Copyright 2021 biblio 2.0</p>
+        
+        <div class="circle">
+          <router-link to="/">
+          <img class="img-logo" alt="Vue logo" src="./assets/LIVRES.png"/>
+          </router-link>
+        </div>
+       
+        <ul class="ul-nav">
+          <router-link to="/">
+            <li class="li-nav">ACCUEIL</li>
+          </router-link>
+          <router-link to="/list">
+            <li class="li-nav">LISTE</li>
+          </router-link>
+          <router-link to="/gender">
+            <li class="li-nav">GENRE</li>
+          </router-link>
+          <router-link to="/about">
+            <li class="li-nav">A PROPOS</li>
+          </router-link>
+          <router-link to="/search">
+            <li class="li-nav">CHERCHER</li>
+          </router-link>
+          <router-link to="/contact">
+            <li class="li-nav">CONTACT</li>
+          </router-link>
+        </ul>    
+              
+      </nav>
 
-    </footer>
-    <router-view> </router-view>
-    </div>
+     <div class="container-title ">
+
+      <h2 class="title-nav ">BIBLIOTHEQUE 2.0</h2>
+
+     </div> 
+
+      <header class="container-header">
+
+        <div class="display-search ">
+          <form class="d-flex col-md-5 my-3">
+            <input class="form-control input-1" type="search" placeholder="Rechercher" aria-label="Search">
+            <button class="btn btn-danger input-2" type="submit">OK</button>
+          </form>
+        </div>
+
+      </header>
+
+
+     
+     <router-view> </router-view>
+     
   </div>
 </template>
 
 
 
 <style>
-@media  screen and (max-width: 675px) {
+@media screen and (max-width: 675px) {
+ @import url("https://fonts.googleapis.com/css2?family=Roboto");
+* a:hover {
+  text-decoration:none;
+}
+  * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
   
-*{
-padding:0;
-margin:0;
-box-sizing: border-box;
-}
+  .container-title{
+     height:15%;
+    background-color: white;
+    width:75%;
+    position: fixed;
+    left:25%;
+    z-index: 1;
+  }
 
-.containe{
-  width: 100%;
-  height: 60vh;
-}
+  .img-logo {
+    width: 60%;
+    margin: 20%;
+  
+  }
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto');
+  .circle{
+    width: 70px;
+    height:70px;
+    background-color: white;
+    border-radius: 50%;
+    text-align:center;
+    vertical-align: center;
+    margin: 6.5%;
+    
 
-.svg{
-  margin-left: 25px;
-}
-
-.img-logo{
-  width:20%;
-  position: absolute;
-  left:1%;
-  top: 2.6%;
-}
-
-.img-logo:hover{
-   transform: scale(1.1);
-  animation: ease-in-out 500ms;
-}
+  }
 
 
-.title-nav{
+  .img-logo:active {
+    transition: ease all 250ms;
+    transform: rotate(360deg);
+  }
+
+  .title-nav {
+    font-size: 13px;
+    font-family: Roboto;
+    color: rgba(247, 4, 4, 0.897);
+    letter-spacing: 5px;
+    font-weight: bolder;
+    text-align: center;
+    padding: 7%;
+    position: fixed;
+    left:27.5%;
+    
+
+  }
+
  
-  font-size: 15px;
-  font-family: Roboto;
-  position: absolute;
-  left: 25%;
-  color: rgba(247, 4, 4, 0.897);
-  margin-top: 7.5%;
-  letter-spacing: 5px;
-  font-weight: 1000;
+  .nav {
+    height: 100%;
+    background-color: black;
+    width: 25%;
+    position: fixed;
+    
+  }
   
+
+  .li-nav {
+    list-style: none;
+    font-family: Roboto;
+    color: white;
+    margin: 4%;
+    font-size: 8px;
+    letter-spacing: 1.5px;
+    opacity: 0.8;
+  }
+
+ 
+  .li-nav:hover{
+    
+    text-decoration: underline;
+      
+  }
+
+  .li-nav:active{
+
+   
+    opacity: 1;
+    text-decoration: none;
+  }
+
+  .ul-nav{
+
+    margin:7.5%;
+    line-height:40px;
+
+  }
+
+  .display-search{
+    margin: 2%;
+   float: right;
+   
+     
+  }
   
-}
-
-.container-header{
-
-  width: 100%;
-  height: 80px;
-  background-color: black;
-  
-}
-
-#nav {
-  height: 80px;
-  background-color: white;
-  width: 100%;
-  
-  
-}
-.ul-nav{
-display: flex;
-margin-left: 70%;
+  .input-1{
+    width:70%;
+    font-size: 9px;
+  }
 
   
-}
+  .input-2{
+    width:20%;
+    font-size: 9px;
+  }
 
-.li-nav{
-list-style: none;
-font-family: Roboto;
-
-}
-
-* a {
-  font-weight: bold;
-  color: #020202;  
-   text-decoration: none;
-  font-family: Roboto;
-  margin-right: 10%;
-}
-
-#nav a.router-link-exact-active {
-  color: #ce2924;
-  text-decoration-color: none;
-  transform: scale(1.2);
-  animation: ease-in 500ms;
-
-
+  .container-header{
+    width:100%;
+    height:10%;
+    background-color: black;
+    position: fixed;
+    top:12.5%;
+    z-index: 1;
+  }
 
 }
+@media screen and (min-width: 1224px) {
+ @import url("https://fonts.googleapis.com/css2?family=Roboto");
+* a:hover {
+  text-decoration:none;
+}
+  * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+   .container-title{
+     height:15vh;
+    background-color: white;
+    width:100%;
+    z-index: 1;
+   
+  }
 
-.button-search{
-    background-color: red;
+  .img-logo {
+    width: 60%;
+    margin: 20%;
+  
+  }
+
+  .circle{
+    width: 100px;
+    height:100px;
+    background-color: white;
+    border-radius: 50%;
+    text-align:center;
+    vertical-align: center;
+    margin: 25%;
+    
+
+  }
+
+
+  .img-logo:active {
+    transition: ease all 250ms;
+    transform: rotate(360deg);
+  }
+
+  .title-nav {
+    font-size: 35px;
+    font-family: Roboto;
+    color: rgba(247, 4, 4, 0.897);
+    letter-spacing: 5px;
+    font-weight: bolder;
+    text-align: center;
+    padding: 2.5%;
+    position: absolute;
+    left:40%;
+  }
+
+ 
+  .nav {
+    height: 100%;
+    background-color: black;
+    width: 12.5%;
+    position: fixed;
+    
+  }
+  
+
+  .li-nav {
+    list-style: none;
+    font-family: Roboto;
+    color: white;
+    margin: 3%;
     font-size: 15px;
-    float: right;
-    padding: 6px 10px;
-    margin-top: 25px;
-    margin-right: -155px;
-    font-size: 10px;
-    border: none;
-    cursor: pointer;
+    letter-spacing: 2.5px;
+    opacity: 0.8;
+  }
+
+  .li-nav:hover{
+    
+    text-decoration: underline;
+      
+  }
+
+  .li-nav:active{
+
+    opacity: 1;
+  }
+
+  .ul-nav{
+
+    margin:7.5%;
+    line-height:50px;
+
+  }
+
+  .display-search{
+   display: flex;
+    flex-direction: row-reverse;
+    
+    
+  }
+
+  .container-header{
+    width:100%;
+    height:10%;
+    background-color: black;
+    z-index: 1;
+}
+
+
+  .display-search{
+    margin: 2%;
   
-}
-
-.button-search:active{
-   background-color: #c7433e;
-  text-decoration-color: none;
-  transform: scale(0.9);
-  animation: ease-in 500ms;
-}
-
-.input-header {
-  float: right;
-  padding: 6px;
-  border: none;
-  margin-top: 25px;
-  margin-right:150px;
-  font-size: 10px;
-}
-
-.section{
-  width:100%;
-  height:250px;
-  background-image: url(./assets/biblio.png);
-
-}
-
-.banniere{
-  width: 100%;
-  height:85px;
-  background-color: #50332cb4;
-  opacity: 0.8;
-  position: absolute;
-  top: 30%;
-}
-
-.ul2-section{
-  margin-left:15%;
-  margin-top:7.5%;
+   
+     
+  }
   
-}
+  .input-1{
+    width:60%;
+    font-size: 15px;
+  }
 
-
-
-.li-section{
-list-style: none;
-font-family: Roboto;
-color: black;
-display: inline;
-font-size: 20px;
-text-decoration: none;
-
-
-
-}
-
-.li-section:hover{
-  text-decoration: none;
-  color:#ce2924;
   
-}
+  .input-2{
+    width:10%;
+    font-size: 15px;
+  }
 
-
-.footer{
-  width:100%;
-  height:100px;
-  background-image: url(./assets/biblio.png);
-  position: absolute;
- bottom:-46vh;
 
 }
 
-.min-footer{
-  width: 100%;
-  height: 75px;
-  background-color: black;
- position: absolute;
- bottom:-55vh;
+@media screen and (min-width: 676px) and (max-width: 1223px){
 
+ @import url("https://fonts.googleapis.com/css2?family=Roboto");
+* a:hover {
+  text-decoration:none;
 }
-
-.footer-text{
-  color: white;
-  font-family: Roboto;
-  font-size: 11px;
-  text-align: center;
-  margin: 5%;
-}
-}
-@media screen and (min-width:1224px){
-  
-.svg{
-  margin-left: 75px;
-} 
-
-*{
-padding:0;
-margin:0;
-box-sizing: border-box;
-}
-@import url('https://fonts.googleapis.com/css2?family=Roboto');
-
-.img-logo{
-  width:8%;
-  position: absolute;
-  left:1%;
-}
-
-.img-logo:hover{
-   transform: scale(1.1);
-  animation: ease-in-out 500ms;
-}
-
-
-.title-nav{
  
-  font-size: 25px;
-  font-family: Roboto;
-  position: absolute;
-  left: 45%;
-  color: rgba(247, 4, 4, 0.897);
-  margin-top: 1%;
-  letter-spacing: 5px;
   
+  .container-title{
+     height:15%;
+    background-color: white;
+    width:75%;
+    position: fixed;
+    left:25%;
+    z-index: 1;
+
+  }
+
+  .img-logo {
+    width: 60%;
+    margin: 20%;
   
-}
+  }
 
-.container-header{
+  .circle{
+    width: 130px;
+    height:130px;
+    background-color: white;
+    border-radius: 50%;
+    text-align:center;
+    vertical-align: center;
+    margin: 8.5%;
+    
 
-  width: 100%;
-  height: 80px;
-  background-color: black;
+  }
+
+
+  .img-logo:active {
+    transition: ease all 250ms;
+    transform: rotate(360deg);
+  }
+
+  .title-nav {
+    font-size: 23px;
+    font-family: Roboto;
+    color: rgba(247, 4, 4, 0.897);
+    letter-spacing: 5px;
+    font-weight: bolder;
+    text-align: center;
+    padding: 5%;
+    position: fixed;
+    left:37.5%;
+    
+
+  }
+
+ 
+  .nav {
+    height: 100%;
+    background-color: black;
+    width: 25%;
+    position: fixed;
+    
+  }
   
-}
 
-#nav {
-  height: 80px;
-  background-color: white;
-  width: 100%;
+  .li-nav {
+    list-style: none;
+    font-family: Roboto;
+    color: white;
+    margin: 2%;
+    font-size: 18px;
+    letter-spacing: 1.5px;
+    opacity: 0.8;
+    line-height: 50px;
+  }
+
+
+  .li-nav:hover{
+    
+    text-decoration: underline;
+      
+  }
+  .li-nav:active{
+
+   
+    opacity: 1;
+    text-decoration: none;
+  }
+
+  .ul-nav{
+
+    margin:3%;
+   
+
+  }
+
+  .display-search{
+    display: flex;
+    flex-direction: row-reverse;
+   
+     
+  }
   
-  
-}
-.ul-nav{
-display: flex;
-margin-left: 85%;
-
-  
-}
-
-.li-nav{
-list-style: none;
-font-family: Roboto;
-
-}
-
-* a {
-  font-weight: bold;
-  color: #020202;  
-   text-decoration: none;
-  font-family: Roboto;
-  margin-right: 10%;
-}
-
-a:hover{
-  text-decoration: none;
-}
-
-#nav a.router-link-exact-active {
-  color: #ce2924;
-  text-decoration-color: none;
-  transform: scale(1.2);
-  animation: ease-in 500ms;
-
-
-
-}
-
-.button-search{
-    background-color: red;
+  .input-1{
+ 
     font-size: 20px;
-    float: right;
-    padding: 6px 10px;
-    margin-top: 25px;
-    margin-right: -270px;
-    font-size: 17px;
-    border: none;
-    cursor: pointer;
+  }
+
   
-}
+  .input-2{
+    
+    font-size: 20px;
+  }
 
-.button-search:active{
-   background-color: #c7433e;
-  text-decoration-color: none;
-  transform: scale(0.9);
-  animation: ease-in 500ms;
-}
-
-.input-header {
-  float: right;
-  padding: 6px;
-  border: none;
-  margin-top: 25px;
-  margin-right: 106px;
-  font-size: 17px;
-}
-
-.section{
-  width:100%;
-  height:250px;
-  background-image: url(./assets/biblio.png);
-
-}
-
-.banniere{
-  width: 100%;
-  height:85px;
-  background-color: #50332cb4;
-  opacity: 0.8;
-  position: absolute;
-  top: 30%;
-}
-
-.ul2-section{
-  margin-left:30%;
-  margin-top:1.5%;
-  
-}
+  .container-header{
+    width:80%;
+    height:10%;
+    background-color: black;
+    position: fixed;
+    top:12.5%;
+    left: 20%;
+    z-index: 1;
+  }
 
 
 
-.li-section{
-list-style: none;
-font-family: Roboto;
-color: black;
-display: inline;
-font-size: 35px;
-text-decoration: none;
 
-
-
-}
-
-.li-section:hover{
-  text-decoration: none;
-  color:#ce2924;
-  
-}
-
-
-.footer{
-  width:100%;
-  height:100px;
-  background-image: url(./assets/biblio.png);
-  position: absolute;
-  bottom:-26%;
-
-
-}
-
-.min-footer{
-  width: 100%;
-  height: 75px;
-  background-color: black;
-  position: absolute;
-  bottom: -35%;
-}
-
-.footer-text{
-  color: white;
-  font-family: Roboto;
-  font-size: 14px;
-  text-align: center;
-  margin: 2%;
-}
 }
 </style>
