@@ -7,6 +7,8 @@ import Gender from './views/Gender.vue'
 import About from './views/About.vue'
 import Search from './views/Search.vue'
 import Contact from './views/Contact.vue'
+import Login from './views/Login.vue'
+import Register from './views/Register.vue'
 import YaModal from 'vue-ya-semantic-modal'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
@@ -61,3 +63,15 @@ new Vue({
   router,
   render: h => h(Contact)
 }).$mount('#contact')
+
+
+new Vue({
+  router,
+  render: h => h(Login)
+}).$mount('#login')
+
+
+new Vue({
+  router,
+  render: h => h(Register)
+}).$mount('#register')

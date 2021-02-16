@@ -1,5 +1,5 @@
 <template>
-  <div id="list">
+  <div id="search">
     <div class="container-search">
         <h1>RECHERCHE</h1> 
         <h3>RESULTAT RECHERCHE :</h3>

@@ -11,6 +11,9 @@
         </div>
        
         <ul class="ul-nav">
+          <router-link to="/login">
+            <li class="li-nav">CONNEXION</li>
+          </router-link>
           <router-link to="/">
             <li class="li-nav">ACCUEIL</li>
           </router-link>
