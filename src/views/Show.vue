@@ -1,24 +1,23 @@
 <template>
   <div id="show">
   
-    <div class="container-show">
+    <div class="container-show" >
         
    
 
-    <h1>TITLE</h1>
-    <img class="img-show img-fluid" src="../assets/livre.png" alt="" />
-    <h2>AUTHOR</h2>
-    <h5>DATE & GENRE</h5>
+    <h1>{{ book }}</h1>
+    <!-- <img class="img-show img-fluid" src= {{ image }} alt="" /> -->
+    <img class="img-show img-fluid" :src=  "image">
+   
+    <h2>{{ author }}</h2>
+    <h5></h5>
     <h4>RESUM</h4>
-    <br />
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem
-      repellat soluta officiis facere ea iste? Deleniti voluptatum hic explicabo
-      quisquam. Soluta debitis quae vel, ex esse tempora eligendi nihil
-      consectetur.
+    <br/>
+    <p>{{ summary }}
     </p>
 
     <!-- Button trigger modal -->
+    <form>
     <button
       type="button"
       class="btn btn-success mx-3 mb-5 size-button"
@@ -167,32 +166,67 @@
           </div> 
           </div>
         </div>
-      </div>
+      </div> 
+      </form>
     </div>
+   
+      <br>
+     <p class="quantity"> quantitée : {{ quantity}} </p>
   </div>
+
+
 </template>
+
+
+
 
 <script>
 import axios from "axios";
 
 export default {
+  
   data() {
     return {
-      book: [],
-    };
+      book: "",
+      author:"",
+      quantity:'',
+      summary:"",
+      image:"",
+      firstname:"",
+      lastname:"",
+        }
   },
   mounted() {
     axios
-      .get("http://127.0.0.1:8000/api/books")
+      .get("https://127.0.0.1:8000/api/books/12")
       .then((res) => {
-        this.book = res.data;
+        this.book = res.data.name, 
+        this.author = res.data.author;
+        this.quantity = res.data.quantity;
+        this.summary = res.data.summary;
+        this.image = res.data.image;
+        console.log(res.data);
         console.log(this.book);
       })
       .catch((error) => {
         console.log(error);
       });
   },
+  methods: {
+    sendPost() {
+      const postData = { firstname: this.firstname, lastname: this.lastname };
+      axios
+        .post("https://127.0.0.1:8000/api/customers", postData)
+        .then(res => {
+          console.log(res.body);
+        });
+    }
+  }
 };
+
+
+
+
 </script>
 
 <style scoped>
@@ -272,10 +306,10 @@ export default {
 
   h1 {
     text-align: center;
-    font-size: 50px;
+    font-size: 40px;
     font-weight: 900;
     letter-spacing: 5px;
-    margin: 2%;
+    margin: 4%;
     text-decoration: overline;
     font-family: Roboto;
   }
@@ -315,6 +349,15 @@ export default {
   }
   .img-show {
     float: left;
+    margin: 5%;
+  }
+
+  .quantity{
+     font-size: 18px;
+    font-weight: 250;
+    letter-spacing: 2px;
+    font-family: Roboto;
+    margin-right: 20%;
   }
 }
 

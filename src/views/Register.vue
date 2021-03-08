@@ -5,24 +5,24 @@
         <h1>S'INSCRIRE</h1> 
 
        <div class="container-form">
-        <form>
+          <form v-on:submit.prevent="submitForm">
             <div class="form-group input-group ">
                 <div class="input-group-prepend ">
                     <span class="input-group-text"> <i class="fa fa-user"></i> </span>
                 </div>
-                <input name="" class="form-control col-md-4 " placeholder="first name" type="text">
+                <input name="" class="form-control col-md-4 " id="firstname" placeholder="first name" type="text" v-model="form.firstname">
             </div> <!-- form-group// -->
             <div class="form-group input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text"> <i class="fa fa-user"></i> </span>
                 </div>
-                <input name="" class="form-control col-md-4" placeholder="last name" type="text">
+                <input name="" class="form-control col-md-4" id="lastname" placeholder="last name" type="text" v-model="form.lastname">
             </div> <!-- form-group// -->
             <div class="form-group input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
                 </div>
-                <input name="" class="form-control col-md-4" placeholder="Email" type="email">
+                <input name="" class="form-control col-md-4" id="email" placeholder="Email" type="email" v-model="form.email">
             </div> <!-- form-group// -->
             
            
@@ -30,13 +30,13 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
                 </div>
-                <input class="form-control col-md-4" placeholder="mot de passe" type="password">
+                <input class="form-control col-md-4" id="password" placeholder="mot de passe" type="password" v-model="form.password">
             </div> <!-- form-group// -->
             <div class="form-group input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
                 </div>
-                <input class="form-control col-md-4" placeholder="confirmer mot de passe" type="password">
+                <input class="form-control col-md-4" id="repassword" placeholder="confirmer mot de passe" type="password" v-model="form.repassword">
             </div> <!-- form-group// -->                                      
             <div class="form-group">
                 <button type="submit" class="btn btn-dark btn-block col-md-2"> Créer un compte  </button>
@@ -52,6 +52,42 @@
 
   </div>
 </template>
+
+<script>
+import axios from 'axios';
+
+export default {
+  
+    data(){
+        return{
+            form: {
+                firstname: '',
+                lastname:'',
+                email:'',
+                password:'',
+                repassword:''
+                
+                
+            }
+        }
+    },
+
+    methods:{
+        submitForm(){
+            axios.post('https://127.0.0.1:8000/api', this.form)
+                .then((res) => {
+                this.form = res.data;
+                console.log(this.form);
+              })
+              .catch((error) => {
+                console.log(error);
+              });
+          },
+        }
+        };             
+          
+   
+</script>
 
 
 <style scoped>
