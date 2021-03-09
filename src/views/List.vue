@@ -3,14 +3,18 @@
     <div class="container-list">
         <h1>LIVRES EN BIBLIOTHEQUE</h1>
 
-          <div class="row col-12 " v-for="(book, bookid)  in books" :key="bookid"> 
+          <div class="row">
 
-            <div class="card m-4 display-card" >
-            <router-link to="/show">
-                <img class="card-img-top" :src= "book.image"/>
-            </router-link> 
-            <div class="card-body ">
-              <h5 class="card-title text-center" > {{book.name}} </h5></div><br> 
+            <div class="col-4 " v-for="(book, bookid)  in books" :key="bookid"> 
+
+              <div class="card m-2" >
+                <router-link to="/show">
+                    <img class="card-img-top" :src= "book.image"/> 
+                </router-link> 
+                <div class="card-body ">
+                  <h5 class="card-title text-center" > {{book.name}} </h5>
+                </div>
+              </div>
             </div>
               
           </div>
