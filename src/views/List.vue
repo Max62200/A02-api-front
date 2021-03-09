@@ -3,14 +3,14 @@
     <div class="container-list">
         <h1>LIVRES EN BIBLIOTHEQUE</h1> 
 
-          <div class="row col-12 " v-for="(name, image) in book" :key="book.id"> 
+          <div class="row col-12 " v-for="book in books" :key="book"> 
 
                 <div class="card m-4 display-card"  >
                 <router-link to="/show">
-                    <img class="card-img-top" :src=image />
+                    <img class="card-img-top" :src= book.image />
                 </router-link> 
                 <div class="card-body ">
-                  <h5 class="card-title text-center" >{{ name }}</h5></div><br> 
+                  <h5 class="card-title text-center" >{{ book.name }}</h5></div><br> 
                 </div>
               
           </div>
@@ -28,15 +28,15 @@ export default {
     return {
       name: "",
       image: "",
-      book:[],
+      books:[],
     };
   },
   mounted() {
     axios
-      .get("https://127.0.0.1:8000/api/books")
+      .get("http://127.0.0.1:8000/api/books")
       .then((res) => {
-        this.book = res;
-        console.log(this.book);
+        this.books = res;
+        console.log(this.books);
       })
       .catch((error) => {
         console.log(error);
