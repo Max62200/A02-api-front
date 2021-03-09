@@ -1,17 +1,17 @@
 <template>
   <div id="list">
     <div class="container-list">
-        <h1>LIVRES EN BIBLIOTHEQUE</h1> 
+        <h1>LIVRES EN BIBLIOTHEQUE</h1>
 
-          <div class="row col-12 " v-for="book in books" :key="book"> 
+          <div class="row col-12 " v-for="(book, bookid)  in books" :key="bookid"> 
 
-                <div class="card m-4 display-card"  >
-                <router-link to="/show">
-                    <img class="card-img-top" :src= book.image />
-                </router-link> 
-                <div class="card-body ">
-                  <h5 class="card-title text-center" >{{ book.name }}</h5></div><br> 
-                </div>
+            <div class="card m-4 display-card" >
+            <router-link to="/show">
+                <img class="card-img-top" :src= "book.image"/>
+            </router-link> 
+            <div class="card-body ">
+              <h5 class="card-title text-center" > {{book.name}} </h5></div><br> 
+            </div>
               
           </div>
 
@@ -28,15 +28,14 @@ export default {
     return {
       name: "",
       image: "",
-      books:[],
+      books:[]
     };
   },
   mounted() {
     axios
       .get("http://127.0.0.1:8000/api/books")
       .then((res) => {
-        this.books = res;
-        console.log(this.books);
+        this.books = res.data["hydra:member"];
       })
       .catch((error) => {
         console.log(error);
