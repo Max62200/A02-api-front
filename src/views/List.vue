@@ -3,68 +3,48 @@
     <div class="container-list">
         <h1>LIVRES EN BIBLIOTHEQUE</h1> 
 
-
-          <div class="row col-12 "> 
-
-
+          <div class="row col-12 " v-for="(name, image) in book" :key="book.id"> 
 
                 <div class="card m-4 display-card"  >
                 <router-link to="/show">
-                  <img class="card-img-top "  src="../assets/livre.png" alt="Card image cap">
+                    <img class="card-img-top" :src=image />
                 </router-link> 
                 <div class="card-body ">
-                  <h5 class="card-title text-center" >title</h5></div><br> 
+                  <h5 class="card-title text-center" >{{ name }}</h5></div><br> 
                 </div>
-                
-                <div class="card m-4 display-card" >
-                  <router-link to="/show">
-                      <img class="card-img-top "  src="../assets/livre.png" alt="Card image cap">
-                    </router-link> 
-                <div class="card-body">
-                  <h5 class="card-title text-center" >title</h5></div><br> 
-                </div>
-
-                <div class="card m-4 display-card" >
-                <router-link to="/show">
-                  <img class="card-img-top "  src="../assets/livre.png" alt="Card image cap">
-                </router-link> 
-                <div class="card-body">
-                  <h5 class="card-title text-center" >title</h5></div><br> 
-                </div>
-
-                <div class="card m-4 display-card" >
-                <router-link to="/show">
-                  <img class="card-img-top "  src="../assets/livre.png" alt="Card image cap">
-                </router-link> 
-                <div class="card-body">
-                  <h5 class="card-title text-center" >title</h5></div><br> 
-                </div>
-
-
-                <div class="card m-4 display-card" >
-                <router-link to="/show">
-                  <img class="card-img-top "  src="../assets/livre.png" alt="Card image cap">
-                </router-link> 
-                <div class="card-body">
-                  <h5 class="card-title text-center" >title</h5></div><br> 
-                </div>
-
-
-                <div class="card m-4 display-card" >
-                <router-link to="/show">
-                  <img class="card-img-top "  src="../assets/livre.png" alt="Card image cap">
-                </router-link> 
-                <div class="card-body">
-                  <h5 class="card-title text-center" >title</h5></div><br> 
-                </div>
-
-                
-            </div>
+              
+          </div>
 
     </div>
   </div>
 </template>
 
+<script>
+import axios from "axios";
+
+export default {
+  
+  data: () => {
+    return {
+      name: "",
+      image: "",
+      book:[],
+    };
+  },
+  mounted() {
+    axios
+      .get("https://127.0.0.1:8000/api/books")
+      .then((res) => {
+        this.book = res;
+        console.log(this.book);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  },
+};
+
+</script>
 
 
 
