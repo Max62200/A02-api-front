@@ -77,6 +77,7 @@
                   id="example-2" v-on:click="greet"
                   @click.prevent="postCustomers()"
                   type="button"
+                  data-dismiss="modal"
                   class="btn btn-primary">
                   Oui, J emprunte !
                 </button>
@@ -131,9 +132,10 @@
                   Fermer
                 </button>
                 <button
-                  @click.prevent="postCustomers()"
+                  @click.prevent="postRestoreBook()"
                   type="button"
                   class="btn btn-primary"
+                  data-dismiss="modal"
                 >
                   Oui, je restitue !
                 </button>
@@ -166,39 +168,49 @@ export default {
       quantity: "",
       lastname: "",
       firstname: "",
+      bookId : "",
     };
   },
   methods: {
     postCustomers() {
       axios({
         method: "post",
-        url: "https://127.0.0.1:8000/api/customers",
+        url: "http://127.0.0.1:8000/api/customers",
         data: {
           firstname: this.firstname,
           lastname: this.lastname,
+          book: [`api/books/${this.bookId}`],
+          quantity : this.quantity --
+        },
+      })
+    },
+    postRestoreBook() {
+      axios({
+        method: "post",
+        url: `http://127.0.0.1:8000/api/books/${this.bookId}`,
+        data: {
+          quantity : this.quantity ++
         },
       });
     }
   },
+
   mounted() {
+    this.bookId = this.$route.params.bookId,
     axios
-      .get("https://127.0.0.1:8000/api/books/12")
+      .get(`http://127.0.0.1:8000/api/books/${this.bookId}`)
       .then((res) => {
-        this.book = res.data.name, 
+        this.book = res.data.name; 
         this.author = res.data.author;
         this.quantity = res.data.quantity;
         this.summary = res.data.summary;
         this.image = res.data.image;
-        console.log(res.data);
-        console.log(this.book);
       })
       .catch((error) => {
         console.log(error);
       });
   },
 };
-
-
 
 </script>
 

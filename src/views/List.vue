@@ -8,7 +8,7 @@
             <div class="col-sm-4 " v-for="(book, bookid)  in books" :key="bookid"> 
 
               <div class="card m-2 " >
-                <router-link to="/show">
+                <router-link :to="{name: 'Show', params: {bookId: book.id } }">
                     <img class="card-img-top" :src= "book.image"/> 
                 </router-link> 
                 <div class="card-body">
@@ -30,14 +30,12 @@ export default {
   
   data: () => {
     return {
-      name: "",
-      image: "",
       books:[]
     };
   },
   mounted() {
     axios
-      .get("https://127.0.0.1:8000/api/books")
+      .get("http://127.0.0.1:8000/api/books")
       .then((res) => {
         this.books = res.data["hydra:member"];
       })
@@ -48,9 +46,6 @@ export default {
 };
 
 </script>
-
-
-
 
 <style scoped>
 @media  screen and (max-width: 675px) {
