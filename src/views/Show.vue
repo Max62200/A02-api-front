@@ -11,8 +11,9 @@
       <br />
       <p>{{ summary }}</p>
 
+      <div class="row">
       <!-- Button trigger modal -->
-      <form @submit.prevent="postCustomers()" method="POST">
+      <form @submit.prevent="postCustomers()" method="POST" >
         <button
           type="button"
           class="btn btn-success mx-3 mb-5 size-button"
@@ -51,13 +52,16 @@
                 Vous-êtes sur le point d'emprunter ce livre, confirmez pour
                 continuer .
                 <div class="input-group mb-3 my-3">
+                  <span class="input-group-text" id="inputGroup-sizing-default"
+                    >Prenom</span>
                   <input v-model="firstname" class="input-group-text" id="inputGroup-sizing-default"
-                    >Nom
+                    >
                  
                 </div>
                 <div class="input-group mb-3">
-                  <input v-model="lastname" class="input-group-text" id="inputGroup-sizing-default"
-                    >Prenom
+                  <span class="input-group-text" id="inputGroup-sizing-default"
+                    >Nom</span>
+                  <input v-model="lastname" class="input-group-text" id="inputGroup-sizing-default">
               
                 </div>
               </div>
@@ -69,11 +73,11 @@
                 >
                   Fermer
                 </button>
-                <button
+                <button 
+                  id="example-2" v-on:click="greet"
                   @click.prevent="postCustomers()"
                   type="button"
-                  class="btn btn-primary"
-                >
+                  class="btn btn-primary">
                   Oui, J emprunte !
                 </button>
               </div>
@@ -81,6 +85,7 @@
           </div>
         </div>
       </form>
+     
       <form @submit.prevent="postCustomers()" method="POST">
         <button
           type="button"
@@ -116,32 +121,7 @@
                 </button>
               </div>
 
-              <div class="modal-body">
-                Vous-êtes sur le point de restituer ce livre, confirmez pour
-                continuer .
-                <div class="input-group mb-3 my-3">
-                  <span class="input-group-text" id="inputGroup-sizing-default"
-                    >Nom</span
-                  >
-                  <input
-                    type="text"
-                    class="form-control"
-                    aria-label="Sizing example input"
-                    aria-describedby="inputGroup-sizing-default"
-                  />
-                </div>
-                <div class="input-group mb-3">
-                  <span class="input-group-text" id="inputGroup-sizing-default"
-                    >Prenom</span
-                  >
-                  <input
-                    type="text"
-                    class="form-control"
-                    aria-label="Sizing example input"
-                    aria-describedby="inputGroup-sizing-default"
-                  />
-                </div>
-              </div>
+            
               <div class="modal-footer">
                 <button
                   type="button"
@@ -161,7 +141,7 @@
             </div>
           </div>
         </div>
-      </form>
+      </form> </div>
       <br>
       <p class="quantity">quantitée : {{ quantity }}</p>
     </div>
@@ -173,6 +153,7 @@
 
 <script>
 import axios from "axios";
+
 
 export default {
   name: "customers",
@@ -203,8 +184,8 @@ export default {
     axios
       .get("https://127.0.0.1:8000/api/books/12")
       .then((res) => {
-        (this.book = res.data.name), 
-        (this.author = res.data.author);
+        this.book = res.data.name, 
+        this.author = res.data.author;
         this.quantity = res.data.quantity;
         this.summary = res.data.summary;
         this.image = res.data.image;
@@ -216,6 +197,8 @@ export default {
       });
   },
 };
+
+
 
 </script>
 

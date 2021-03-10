@@ -5,13 +5,13 @@
 
           <div class="row">
 
-            <div class="col-4 " v-for="(book, bookid)  in books" :key="bookid"> 
+            <div class="col-sm-4 " v-for="(book, bookid)  in books" :key="bookid"> 
 
-              <div class="card m-2" >
+              <div class="card m-2 " >
                 <router-link to="/show">
                     <img class="card-img-top" :src= "book.image"/> 
                 </router-link> 
-                <div class="card-body ">
+                <div class="card-body">
                   <h5 class="card-title text-center" > {{book.name}} </h5>
                 </div>
               </div>
@@ -37,7 +37,7 @@ export default {
   },
   mounted() {
     axios
-      .get("http://127.0.0.1:8000/api/books")
+      .get("https://127.0.0.1:8000/api/books")
       .then((res) => {
         this.books = res.data["hydra:member"];
       })
@@ -82,6 +82,9 @@ h1{
    
   }
 
+.card-title{
+  font-size: 15px;
+}
 
 }
 
@@ -102,7 +105,7 @@ h1{
 }
 
  .container-list {
-    margin-left: 25%;
+    margin-left: 15%;
     
   }
 
