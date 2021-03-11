@@ -35,7 +35,7 @@ export default {
   },
   mounted() {
     axios
-      .get("https://176.31.120.111:8000/api/books")
+      .get("http://176.31.120.111:8000/api/books")
       .then((res) => {
         this.books = res.data["hydra:member"];
       })

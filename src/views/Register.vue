@@ -74,7 +74,7 @@ export default {
 
     methods:{
         submitForm(){
-            axios.post('https://176.31.120.111:8000/api', this.form)
+            axios.post('http://176.31.120.111:8000/api', this.form)
                 .then((res) => {
                 this.form = res.data;
                 console.log(this.form);
@@ -92,7 +92,7 @@ export default {
 
 <style scoped>
 @media  screen and (max-width: 675px) {
-@import url('https://fonts.googleapis.com/css2?family=Roboto');
+@import url('http://fonts.googleapis.com/css2?family=Roboto');
 
 h1{
   text-align: center;
