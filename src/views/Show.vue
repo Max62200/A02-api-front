@@ -175,7 +175,7 @@ export default {
     postCustomers() {
       axios({
         method: "post",
-        url: "https://127.0.0.1:8000/api/customers",
+        url: "https://176.31.120.111:8000/api/customers",
         data: {
           firstname: this.firstname,
           lastname: this.lastname,
@@ -187,7 +187,7 @@ export default {
     postRestoreBook() {
       axios({
         method: "post",
-        url: `https://127.0.0.1:8000/api/books/${this.bookId}`,
+        url: `https://176.31.120.111:8000/api/books/${this.bookId}`,
         data: {
           quantity : this.quantity ++
         },
@@ -198,7 +198,7 @@ export default {
   mounted() {
     this.bookId = this.$route.params.bookId,
     axios
-      .get(`https://127.0.0.1:8000/api/books/${this.bookId}`)
+      .get(`https://176.31.120.111:8000/api/books/${this.bookId}`)
       .then((res) => {
         this.book = res.data.name; 
         this.author = res.data.author;
