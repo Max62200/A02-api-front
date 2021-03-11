@@ -13,11 +13,11 @@
 
       <h3>RESULTAT RECHERCHE :</h3>
 
-      <div class="row" style="margin-right:0;">
+          <div class="row" style="margin-right:0; margin-left:6%;">
 
             <div class="col-sm-4 "  v-for="(book, bookid)  in searchFilter" :key="bookid"> 
 
-              <div class="card m-2 " >
+              <div class="card m-2 "  style="width:75%;" >
                 <router-link :to="{name: 'Show', params: {bookId: book.id } }">
                     <img class="card-img-top" :src= "book.image"/> 
                 </router-link> 
