@@ -42,17 +42,10 @@
 
      </div> 
 
-      <header class="container-header">
+     <div class="header-container">
 
-        <div class="display-search ">
-          <form class="d-flex col-md-5 my-3">
-            <input class="form-control input-1" type="search" placeholder="Rechercher" aria-label="Search">
-            <button class="btn btn-danger input-2" type="submit">OK</button>
-          </form>
-        </div>
 
-      </header>
-
+     </div>
 
      
      <router-view> </router-view>
@@ -162,31 +155,16 @@
 
   }
 
-  .display-search{
-    margin: 2%;
-   float: right;
-   
-     
-  }
-  
-  .input-1{
-    width:70%;
-    font-size: 9px;
-  }
 
-  
-  .input-2{
-    width:20%;
-    font-size: 9px;
-  }
+  .header-container{
 
-  .container-header{
-    width:100%;
-    height:10%;
+    width: 100%;
+    height: 10vh;
     background-color: black;
     position: fixed;
-    top:12.5%;
+    top:15%;
     z-index: 1;
+
   }
 
 }
@@ -283,40 +261,13 @@
 
   }
 
-  .display-search{
-   display: flex;
-    flex-direction: row-reverse;
-    
-    
-  }
+  .header-container{
 
-  .container-header{
-    width:100%;
-    height:10%;
+    width: 100%;
+    height: 10vh;
     background-color: black;
-    z-index: 1;
-}
 
-
-  .display-search{
-    margin: 2%;
-  
-   
-     
   }
-  
-  .input-1{
-    width:60%;
-    font-size: 15px;
-  }
-
-  
-  .input-2{
-    width:10%;
-    font-size: 15px;
-  }
-
-
 }
 
 @media screen and (min-width: 676px) and (max-width: 1223px){
@@ -416,36 +367,16 @@
 
   }
 
-  .display-search{
-    display: flex;
-    flex-direction: row-reverse;
-   
-     
-  }
-  
-  .input-1{
- 
-    font-size: 20px;
-  }
+  .header-container{
 
-  
-  .input-2{
-    
-    font-size: 20px;
-  }
-
-  .container-header{
-    width:80%;
-    height:10%;
+    width: 100%;
+    height: 10vh;
     background-color: black;
     position: fixed;
-    top:12.5%;
-    left: 20%;
+    top:15%;
     z-index: 1;
+
   }
-
-
-
 
 }
 </style>
