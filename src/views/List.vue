@@ -3,7 +3,7 @@
     <div class="container-list">
         <h1>LIVRES EN BIBLIOTHEQUE</h1>
 
-          <div class="row">
+          <div class="row" style="margin-right:0;">
 
             <div class="col-sm-4 " v-for="(book, bookid)  in books" :key="bookid"> 
 

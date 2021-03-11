@@ -20,9 +20,6 @@
           <router-link to="/list">
             <li class="li-nav">LISTE</li>
           </router-link>
-          <router-link to="/gender">
-            <li class="li-nav">GENRE</li>
-          </router-link>
           <router-link to="/about">
             <li class="li-nav">A PROPOS</li>
           </router-link>

@@ -13,7 +13,7 @@
 
       <h3>RESULTAT RECHERCHE :</h3>
 
-      <div class="row">
+      <div class="row" style="margin-right:0;">
 
             <div class="col-sm-4 "  v-for="(book, bookid)  in searchFilter" :key="bookid"> 
 
