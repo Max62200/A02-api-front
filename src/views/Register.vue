@@ -74,7 +74,7 @@ export default {
 
     methods:{
         submitForm(){
-            axios.post('http://176.31.120.111:8000/api', this.form)
+            axios.post('http://127.0.0.1:8000/api', this.form)
                 .then((res) => {
                 this.form = res.data;
                 console.log(this.form);
@@ -146,16 +146,11 @@ h1{
     
   }
 
-
  .container-form {
-    margin-left:35%;
-    
+    margin-left:35%; 
     
   }
-
-
 }
-
 
   @media screen and (min-width: 676px) and (max-width: 1223px){
 
@@ -185,11 +180,6 @@ h1{
     padding-top:30%;
     
   }
-
-    
-
-
-
 
 }
 </style>

@@ -40,10 +40,6 @@
   </div>
 </template>
 
-
-
-
-
 <style scoped>
 @media  screen and (max-width: 675px) {
 @import url('https://fonts.googleapis.com/css2?family=Roboto');
