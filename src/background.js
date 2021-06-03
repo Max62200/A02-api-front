@@ -16,7 +16,7 @@ async function createWindow() {
     width: 800,
     height: 600,
     resizable: true,
-    icon: __dirname + 'LIVRES.png',
+    // icon: __dirname + 'icon.svg',
     webPreferences: {
       
       // Use pluginOptions.nodeIntegration, leave this alone
