@@ -112,7 +112,7 @@ export default {
   methods: {
     submitForm() {
       axios
-        .post("http://127.0.0.1:8000/api/users", this.form)
+        .post("http://176.31.120.111:8000/api/users", this.form)
         .then((res) => {
           this.form = res.data;
           console.log(this.form);
